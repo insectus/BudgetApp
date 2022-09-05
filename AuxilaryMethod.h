@@ -9,6 +9,7 @@ class AuxilaryMethod {
 
 public:
 
+    static char loadChar();
 };
 
 #endif
