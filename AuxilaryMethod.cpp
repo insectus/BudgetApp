@@ -14,3 +14,10 @@ char AuxilaryMethod::loadChar() {
     }
     return sign;
 }
+
+string AuxilaryMethod::convertIntToString(int number){
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}

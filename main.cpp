@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    BudgetApp budgetApp;
+    BudgetApp budgetApp("users.xml");
 
     char select;
     while(true) {

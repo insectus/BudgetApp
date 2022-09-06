@@ -11,6 +11,7 @@ class BudgetApp {
     UserManager userManager;
 
 public:
+    BudgetApp(string USER_FILE_NAME) : userManager(USER_FILE_NAME){};
 
     char selectOptionFromMainMenu();
     char selectOptionFromUserMenu();

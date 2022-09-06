@@ -3,12 +3,19 @@
 
 #include <iostream>
 
+#include "User.h"
+#include "AuxilaryMethod.h"
+#include "XmlFile.h"
+
 using namespace std;
 
-class FileWithUsers {
+class FileWithUsers : public XmlFile {
+
 
 public:
+    FileWithUsers(string fileName) : XmlFile(fileName){};
 
+    void addUserToFile(User user);
 };
 
 #endif

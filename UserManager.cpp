@@ -5,7 +5,7 @@ void UserManager::registerUser() {
 
     users.push_back(user);
 
-    //plikZUzytkownikami.dopiszUzytkownikaDoPliku(uzytkownik);
+    fileWithUsers.addUserToFile(user);
 
     cout << "\nKonto zalozono pomyslnie!";
     Sleep(1000);
@@ -16,7 +16,6 @@ User UserManager::getNewUserData() {
     User user;
 
     user.setUserId(getNewUserId());
-
     string login;
     do {
         cout << "\nPodaj login: ";
@@ -42,10 +41,11 @@ User UserManager::getNewUserData() {
     return user;
 }
 int UserManager::getNewUserId() {
-    if (users.empty() == true)
+    if (users.empty() == true){
         return 1;
-    else
+    }else{
         return users.back().getUserId()+ 1;
+    }
 }
 bool UserManager::loginExist(string login) {
 
