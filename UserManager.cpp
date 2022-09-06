@@ -29,6 +29,16 @@ User UserManager::getNewUserData() {
     cin >> password;
     user.setPassword(password);
 
+    string name;
+    cout << "Podaj swoje imie: ";
+    cin >> name;
+    user.setName(name);
+
+    string surname;
+    cout << "Podaj swoje nazwisko: ";
+    cin >> surname;
+    user.setSurname(surname);
+
     return user;
 }
 int UserManager::getNewUserId() {
@@ -39,9 +49,9 @@ int UserManager::getNewUserId() {
 }
 bool UserManager::loginExist(string login) {
 
-    for (long long unsigned int i = 0; i < users.size(); i++) {
+    for (auto itr = users.begin(); itr != users.end(); itr++) {
 
-        if(users[i].getLogin() == login) {
+        if(itr -> getLogin() == login) {
             cout << "\nIstnieje uzytkownik o takim loginie.\n";
             return true;
         }
