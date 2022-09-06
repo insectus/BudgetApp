@@ -2,6 +2,7 @@
 #define BUDGETMANAGER_H
 
 #include <iostream>
+#include "AuxilaryMethod.h"
 
 using namespace std;
 
