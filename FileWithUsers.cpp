@@ -4,8 +4,6 @@ void FileWithUsers::addUserToFile(User user) {
 
     CMarkup xml;
 
-    //bool fileExistsUsers = xml.Load( getFileName());
-
     if (!XmlFile::isFileEmpty()) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n");
         xml.AddElem("Users");
@@ -23,4 +21,34 @@ void FileWithUsers::addUserToFile(User user) {
         xml.AddElem("surname", user.getSurname());
 
         xml.Save(getFileName());
+}
+vector <User> FileWithUsers::loadUsersFromFile() {
+
+    User user;
+    vector <User> users;
+    CMarkup xml;
+
+    if (xml.Load(getFileName())) {
+        xml.ResetPos();
+        xml.FindElem();
+        xml.IntoElem();
+        while(xml.FindElem("User")) {
+            xml.IntoElem();
+            xml.FindElem( "userId" );
+            user.setUserId(atoi(MCD_2PCSZ(xml.GetData())));
+            xml.FindElem( "login" );
+            user.setLogin(xml.GetData());
+            xml.FindElem( "password" );
+            user.setPassword(xml.GetData());
+            xml.FindElem( "name" );
+            user.setName(xml.GetData());
+            xml.FindElem( "surname" );
+            user.setSurname(xml.GetData());
+            xml.OutOfElem();
+            users.push_back(user);
+        }
+    } else {
+        cout << "Nie udalo sie otworzyc pliku" ;
+    }
+    return users;
 }

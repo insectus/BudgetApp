@@ -17,11 +17,15 @@ class UserManager {
 
     User getNewUserData();
     int getNewUserId();
+    int idLoginUser;
     bool loginExist(string login);
     FileWithUsers fileWithUsers;
 
 public:
-    UserManager(string USER_FILE_NAME) : fileWithUsers(USER_FILE_NAME){};
+    UserManager(string USER_FILE_NAME) : fileWithUsers(USER_FILE_NAME){
+    idLoginUser = 0;
+    users = fileWithUsers.loadUsersFromFile();
+    };
 
     void registerUser();
 };
