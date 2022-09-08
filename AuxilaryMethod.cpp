@@ -21,3 +21,9 @@ string AuxilaryMethod::convertIntToString(int number){
     string str = ss.str();
     return str;
 }
+
+string AuxilaryMethod::loadLine() {
+    string input = "";
+    getline(cin, input);
+    return input;
+}

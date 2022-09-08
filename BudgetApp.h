@@ -24,6 +24,7 @@ public:
     void balanceSheetFromSelectedTimePeriode();
     void changePassword();
     void logoutUser();
+    int getLoginUserId();
 
 };
 

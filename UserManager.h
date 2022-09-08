@@ -28,6 +28,9 @@ public:
     };
 
     void registerUser();
+    int loginUser();
+    void logoutUser();
+    int getLoginUserId();
 };
 
 #endif
