@@ -2,7 +2,7 @@
 
 void User::setUserId(int newUserId) {
     if(newUserId >= 0) {
-        newUserId = newUserId;
+        userId = newUserId;
     }
 }
 void User::setLogin(string newLogin) {

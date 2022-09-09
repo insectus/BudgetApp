@@ -5,11 +5,11 @@
 using namespace std;
 
 int main() {
-    BudgetApp budgetApp;
+    BudgetApp budgetApp("users.xml");
 
     char select;
     while(true) {
-        if(true) {
+        if(budgetApp.getLoginUserId()==0) {
             select = budgetApp.selectOptionFromMainMenu();
 
             switch(select) {
@@ -17,7 +17,7 @@ int main() {
                 budgetApp.registerUser();
                 break;
             case '2':
-                //budgetApp.loginUser();
+                budgetApp.loginUser();
                 break;
             case '9':
                 exit(0);
@@ -46,10 +46,10 @@ int main() {
                 //budgetApp.balanceSheetFromSelectedTimePeriode();
                 break;
             case '6':
-                // budgetApp.changePassword();
+                budgetApp.changeLoginUserPassword();
                 break;
             case '7':
-                //budgetApp.logoutUser();
+                budgetApp.logoutUser();
                 break;
             }
         }

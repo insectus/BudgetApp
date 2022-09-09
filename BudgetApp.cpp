@@ -39,7 +39,7 @@ void BudgetApp::registerUser() {
     userManager.registerUser();
 }
 void BudgetApp::loginUser() {
-    //
+    userManager.loginUser();
 }
 void BudgetApp::addIncome() {
     //
@@ -56,9 +56,13 @@ void BudgetApp::balanceSheetFromPreviousMonth() {
 void BudgetApp::balanceSheetFromSelectedTimePeriode() {
     //
 }
-void BudgetApp::changePassword() {
-    //
+void BudgetApp::changeLoginUserPassword() {
+    userManager.changeLoginUserPassword();
 }
 void BudgetApp::logoutUser() {
-    //
+    userManager.logoutUser();
+}
+
+int BudgetApp::getLoginUserId() {
+    return userManager.getLoginUserId();
 }

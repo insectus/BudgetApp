@@ -14,3 +14,16 @@ char AuxilaryMethod::loadChar() {
     }
     return sign;
 }
+
+string AuxilaryMethod::convertIntToString(int number){
+    ostringstream ss;
+    ss << number;
+    string str = ss.str();
+    return str;
+}
+
+string AuxilaryMethod::loadLine() {
+    string input = "";
+    getline(cin, input);
+    return input;
+}
