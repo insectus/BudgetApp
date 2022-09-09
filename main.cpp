@@ -46,7 +46,7 @@ int main() {
                 //budgetApp.balanceSheetFromSelectedTimePeriode();
                 break;
             case '6':
-                // budgetApp.changePassword();
+                budgetApp.changeLoginUserPassword();
                 break;
             case '7':
                 budgetApp.logoutUser();

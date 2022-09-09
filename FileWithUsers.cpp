@@ -7,20 +7,20 @@ void FileWithUsers::addUserToFile(User user) {
     if (!XmlFile::isFileEmpty()) {
         xml.SetDoc("<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\r\n");
         xml.AddElem("Users");
-    }else if (XmlFile::isFileEmpty()) {
+    } else if (XmlFile::isFileEmpty()) {
         xml.Load(getFileName());
     }
-        xml.FindElem();
-        xml.IntoElem();
-        xml.AddElem("User");
-        xml.IntoElem();
-        xml.AddElem("userId", AuxilaryMethod::convertIntToString(user.getUserId()));
-        xml.AddElem("login", user.getLogin());
-        xml.AddElem("password", user.getPassword());
-        xml.AddElem("name", user.getName());
-        xml.AddElem("surname", user.getSurname());
+    xml.FindElem();
+    xml.IntoElem();
+    xml.AddElem("User");
+    xml.IntoElem();
+    xml.AddElem("userId", AuxilaryMethod::convertIntToString(user.getUserId()));
+    xml.AddElem("login", user.getLogin());
+    xml.AddElem("password", user.getPassword());
+    xml.AddElem("name", user.getName());
+    xml.AddElem("surname", user.getSurname());
 
-        xml.Save(getFileName());
+    xml.Save(getFileName());
 }
 vector <User> FileWithUsers::loadUsersFromFile() {
 
@@ -51,4 +51,24 @@ vector <User> FileWithUsers::loadUsersFromFile() {
         cout << "Nie udalo sie otworzyc pliku" ;
     }
     return users;
+}
+
+void FileWithUsers::changeLoginUserPassword(int idLoginUser, string newPassword) {
+    CMarkup xml;
+
+    if(xml.Load(getFileName())) {
+        xml.ResetPos();
+        xml.FindElem();
+        xml.IntoElem();
+        while(xml.FindElem("User")) {
+            xml.IntoElem();
+            if(xml.FindElem( "userId" ) && (stoi(xml.GetData()) == idLoginUser)) {
+                xml.FindElem( "password" );
+                xml.RemoveElem();
+                xml.AddElem("password", newPassword);
+                xml.Save("users.xml");
+            }
+            xml.OutOfElem();
+        }
+    }
 }

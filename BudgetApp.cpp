@@ -56,13 +56,13 @@ void BudgetApp::balanceSheetFromPreviousMonth() {
 void BudgetApp::balanceSheetFromSelectedTimePeriode() {
     //
 }
-void BudgetApp::changePassword() {
-    //
+void BudgetApp::changeLoginUserPassword() {
+    userManager.changeLoginUserPassword();
 }
 void BudgetApp::logoutUser() {
     userManager.logoutUser();
 }
 
-int BudgetApp::getLoginUserId(){
+int BudgetApp::getLoginUserId() {
     return userManager.getLoginUserId();
 }

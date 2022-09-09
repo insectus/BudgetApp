@@ -41,9 +41,9 @@ User UserManager::getNewUserData() {
     return user;
 }
 int UserManager::getNewUserId() {
-    if (users.empty() == true){
+    if (users.empty() == true) {
         return 1;
-    }else{
+    } else {
         return users.back().getUserId()+ 1;
     }
 }
@@ -59,7 +59,7 @@ bool UserManager::loginExist(string login) {
     return false;
 }
 
-int UserManager::loginUser(){
+int UserManager::loginUser() {
     string login = "", password = "";
 
     cout << "\nPodaj login: ";
@@ -93,10 +93,25 @@ int UserManager::loginUser(){
     return idLoginUser;
 }
 
-void UserManager::logoutUser(){
+void UserManager::logoutUser() {
     idLoginUser = 0;
 }
 
-int UserManager::getLoginUserId(){
+int UserManager::getLoginUserId() {
     return idLoginUser;
+}
+
+void UserManager::changeLoginUserPassword() {
+    string newPassword = "";
+    cout << "Podaj nowe haslo: ";
+    newPassword = AuxilaryMethod::loadLine();
+
+    for (vector <User>::iterator itr = users.begin(); itr != users.end(); itr++) {
+        if (itr -> getUserId() == idLoginUser) {
+            itr -> setPassword(newPassword);
+            cout << "Haslo zostalo zmienione.\n\n";
+            system("pause");
+        }
+    }
+    fileWithUsers.changeLoginUserPassword(idLoginUser, newPassword);
 }

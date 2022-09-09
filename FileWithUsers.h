@@ -15,10 +15,11 @@ class FileWithUsers : public XmlFile {
 
 
 public:
-    FileWithUsers(string fileName) : XmlFile(fileName){};
+    FileWithUsers(string fileName) : XmlFile(fileName) {};
 
     void addUserToFile(User user);
     vector <User> loadUsersFromFile();
+    void changeLoginUserPassword(int idLoginUser, string newPassword);
 };
 
 #endif
