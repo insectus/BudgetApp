@@ -41,14 +41,21 @@ void BudgetApp::registerUser() {
 
 void BudgetApp::loginUser() {
     userManager.loginUser();
-    //sprawdz czy uzytkownik jest zalogowany
-    budgetManager = new BudgetManager(INCOME_FILE_NAME, EXPENSE_FILE_NAME, userManager.getLoginUserId());
+    if (userManager.isUserLogin()) {
+        budgetManager = new BudgetManager(INCOME_FILE_NAME, EXPENSE_FILE_NAME, userManager.getLoginUserId());
+    } else {
+        cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
+        Sleep(1500);
+    }
 }
 
 void BudgetApp::changeLoginUserPassword() {
-    //sprawdz czy uzytkownik jest zalogowany
-    userManager.changeLoginUserPassword();
-
+    if (userManager.isUserLogin()) {
+        userManager.changeLoginUserPassword();
+    } else {
+        cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
+        Sleep(1500);
+    }
 }
 
 void BudgetApp::logoutUser() {
@@ -63,22 +70,43 @@ int BudgetApp::getLoginUserId() {
 }
 
 void BudgetApp::addIncome() {
-    //sprawdz czy uzytkownik jest zalogowany
-    budgetManager->addIncome();
+    if (userManager.isUserLogin()) {
+        budgetManager->addIncome();
+    } else {
+        cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
+        Sleep(1500);
+    }
 }
+
 void BudgetApp::addExpense() {
-    //sprawdz czy uzytkownik jest zalogowany
-    //
+    if (userManager.isUserLogin()) {
+        //
+    } else {
+        cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
+        Sleep(1500);
+    }
 }
 void BudgetApp::balanceSheetForThisMonth() {
-    //sprawdz czy uzytkownik jest zalogowany
-    //
+    if (userManager.isUserLogin()) {
+        //
+    } else {
+        cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
+        Sleep(1500);
+    }
 }
 void BudgetApp::balanceSheetFromPreviousMonth() {
-    //sprawdz czy uzytkownik jest zalogowany
-    //
+    if (userManager.isUserLogin()) {
+        //
+    } else {
+        cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
+        Sleep(1500);
+    }
 }
 void BudgetApp::balanceSheetFromSelectedTimePeriode() {
-    //sprawdz czy uzytkownik jest zalogowany
-    //
+    if (userManager.isUserLogin()) {
+        //
+    } else {
+        cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
+        Sleep(1500);
+    }
 }

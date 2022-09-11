@@ -5,7 +5,6 @@
 using namespace std;
 
 int main() {
-    //BudgetApp budgetApp("users.xml", "income.xml");
     BudgetApp budgetApp("users.xml", "income.xml", "expene.xml");
 
     char select;
@@ -19,6 +18,7 @@ int main() {
                 break;
             case '2':
                 budgetApp.loginUser();
+
                 break;
             case '9':
                 exit(0);
@@ -63,7 +63,8 @@ int main() {
 #include "BudgetManager.h"
 
 int main(){
-    BudgetManager budgetManager("income.xml", 2);
+    BudgetManager budgetManager("income.xml", "expense.xml", 2);
     budgetManager.addIncome();
 }
+
 */

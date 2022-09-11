@@ -17,10 +17,10 @@ Income BudgetManager::addNewIncome() {
     bool incorrectMenuSelestion = true;
     char dateSelection;
     string incomeDate, incomeItem, incomeAmount;
-    income.setIncomeId(fileWithIncome.getLastIncomeId()+1);
+    income.setIncomeId((fileWithIncome.getLastIncomeId()+1));
     income.setUserId(ID_LOGIN_USER);
 
-    cout << "Czy przychod dotyczy:\n1. Dnia dzisiejszego\n2. Innego dnia\nTwoj wybor: ";
+    cout << "Czy przychod dotyczy:\n\t1. Dnia dzisiejszego\n\t2. Innego dnia\n\nTwoj wybor: ";
 
     while(incorrectMenuSelestion) {
         dateSelection = AuxilaryMethod::loadChar();
@@ -47,9 +47,10 @@ Income BudgetManager::addNewIncome() {
     cout << "Podaj kwote przychodu: ";
     income.setAmount(AuxilaryMethod::loadLine());// dodaj walidacje
 
-    cout << "\nPrzychod dodany do wektora\n";
-    cout << income.getUserId() << endl;
+    cout << "\nPrzychod dodany. Powrot do menu glownego...\n";
+    //sleep("1000");
     cout << income.getIncomeId() << endl;
+    cout << income.getUserId() << endl;
     cout << income.getDate() << endl;
     cout << income.getAmount() << endl;
     cout << income.getItem() << endl;

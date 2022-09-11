@@ -23,6 +23,7 @@ class BudgetManager {
     DateOperation dateOperation;
 
     const int ID_LOGIN_USER;
+    int lastIncomeId;
 
     vector <Income> incomes;
 
@@ -31,7 +32,7 @@ class BudgetManager {
 public:
     BudgetManager(string INCOME_FILE_NAME, string  EXPENSE_FILE_NAME, int idLoginUser)//
         : fileWithIncome(INCOME_FILE_NAME), fileWithExpense(EXPENSE_FILE_NAME), ID_LOGIN_USER(idLoginUser) { //
-        //
+        incomes = fileWithIncome.loadIncomesLoginUser(ID_LOGIN_USER);
     };
 
     void addIncome();

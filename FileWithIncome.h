@@ -2,6 +2,8 @@
 #define FILEWITHINCOME_H
 
 #include <iostream>
+#include <vector>
+#include <windows.h>
 
 #include "Income.h"
 #include "XmlFile.h"
@@ -21,6 +23,7 @@ public:
 
     int getLastIncomeId();
     bool addNewIncomeToFile(Income income);
+    vector <Income> loadIncomesLoginUser(int idLoginUser);
 };
 
 #endif

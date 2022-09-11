@@ -115,3 +115,11 @@ void UserManager::changeLoginUserPassword() {
     }
     fileWithUsers.changeLoginUserPassword(idLoginUser, newPassword);
 }
+
+bool UserManager::isUserLogin() {
+    if(idLoginUser > 0) {
+        return true;
+    } else {
+        return false;
+    }
+}
