@@ -1,10 +1,10 @@
 #include "FileWithIncome.h"
 
-int FileWithIncome::getLastIncomeId(){
+int FileWithIncome::getLastIncomeId() {
     return lastIncomeId;
 }
 
-bool FileWithIncome::addNewIncomeToFile(Income income){
+bool FileWithIncome::addNewIncomeToFile(Income income) {
     CMarkup xml;
 
     if (!XmlFile::isFileEmpty()) {

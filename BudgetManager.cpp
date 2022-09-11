@@ -20,9 +20,9 @@ Income BudgetManager::addNewIncome() {
     income.setIncomeId(fileWithIncome.getLastIncomeId()+1);
     income.setUserId(ID_LOGIN_USER);
 
-    cout << "Czy przychow dotyczy:\n1. Dnia dzisiejszego\n2. Innego dnia\nTwoj wybor: ";
+    cout << "Czy przychod dotyczy:\n1. Dnia dzisiejszego\n2. Innego dnia\nTwoj wybor: ";
 
-    while(incorrectMenuSelestion){
+    while(incorrectMenuSelestion) {
         dateSelection = AuxilaryMethod::loadChar();
         switch(dateSelection) {
         case '1':

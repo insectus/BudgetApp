@@ -13,7 +13,7 @@ class FileWithExpense : public XmlFile {
 
 public:
 
-    FileWithExpense(string expenseFileName) : XmlFile(expenseFileName){
+    FileWithExpense(string expenseFileName) : XmlFile(expenseFileName) {
         //
     };
 

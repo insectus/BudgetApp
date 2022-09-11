@@ -14,21 +14,13 @@ class BudgetApp {
     BudgetManager *budgetManager;
 
     const string INCOME_FILE_NAME;
-    //const string EXPENSE_FILE_NAME;
+    const string EXPENSE_FILE_NAME;
 
 public:
-    BudgetApp(string USER_FILE_NAME, string incomeFileName)
-        : userManager(USER_FILE_NAME), INCOME_FILE_NAME(incomeFileName) {
-        budgetManager = NULL;
-    };
-
-    /*
     BudgetApp(string USER_FILE_NAME, string incomeFileName, string expenseFileName)
         : userManager(USER_FILE_NAME), INCOME_FILE_NAME(incomeFileName), EXPENSE_FILE_NAME(expenseFileName) {
         budgetManager = NULL;
     };
-
-    */
 
     ~BudgetApp() {
         delete budgetManager;

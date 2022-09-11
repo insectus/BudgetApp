@@ -42,7 +42,7 @@ void BudgetApp::registerUser() {
 void BudgetApp::loginUser() {
     userManager.loginUser();
     //sprawdz czy uzytkownik jest zalogowany
-    budgetManager = new BudgetManager(INCOME_FILE_NAME, userManager.getLoginUserId());
+    budgetManager = new BudgetManager(INCOME_FILE_NAME, EXPENSE_FILE_NAME, userManager.getLoginUserId());
 }
 
 void BudgetApp::changeLoginUserPassword() {

@@ -15,8 +15,8 @@ class FileWithIncome : public XmlFile {
 
 public:
 
-    FileWithIncome(string incomeFileName) : XmlFile(incomeFileName){
-       lastIncomeId = 0;
+    FileWithIncome(string incomeFileName) : XmlFile(incomeFileName) {
+        lastIncomeId = 0;
     };
 
     int getLastIncomeId();

@@ -23,7 +23,7 @@ string DateOperation::getCurrentYearMonthDayAsString() {
     return dateAsString;
 }
 
-int DateOperation::getCurrentYearMonthDayAsInt(){
+int DateOperation::getCurrentYearMonthDayAsInt() {
 //
-return 0;
+    return 0;
 }
