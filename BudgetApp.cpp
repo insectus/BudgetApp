@@ -21,7 +21,7 @@ char BudgetApp::selectOptionFromUserMenu() {
     system("cls");
     cout << " >>> MENU UZYTKOWNIKA <<<" << endl;
     cout << "---------------------------" << endl;
-    cout << "1. Dodaj przychow" << endl;
+    cout << "1. Dodaj przychod" << endl;
     cout << "2. Dodaj wydatek" << endl;
     cout << "3. Bilans z obecnego miesiaca" << endl;
     cout << "4. Bilans z poprzedniego miesiaca" << endl;
@@ -41,14 +41,21 @@ void BudgetApp::registerUser() {
 
 void BudgetApp::loginUser() {
     userManager.loginUser();
+    //sprawdz czy uzytkownik jest zalogowany
+    budgetManager = new BudgetManager(INCOME_FILE_NAME, userManager.getLoginUserId());
 }
 
 void BudgetApp::changeLoginUserPassword() {
+    //sprawdz czy uzytkownik jest zalogowany
     userManager.changeLoginUserPassword();
+
 }
 
 void BudgetApp::logoutUser() {
     userManager.logoutUser();
+    delete budgetManager;
+    budgetManager = NULL;
+
 }
 
 int BudgetApp::getLoginUserId() {
@@ -56,17 +63,22 @@ int BudgetApp::getLoginUserId() {
 }
 
 void BudgetApp::addIncome() {
+    //sprawdz czy uzytkownik jest zalogowany
     budgetManager->addIncome();
 }
 void BudgetApp::addExpense() {
+    //sprawdz czy uzytkownik jest zalogowany
     //
 }
 void BudgetApp::balanceSheetForThisMonth() {
+    //sprawdz czy uzytkownik jest zalogowany
     //
 }
 void BudgetApp::balanceSheetFromPreviousMonth() {
+    //sprawdz czy uzytkownik jest zalogowany
     //
 }
 void BudgetApp::balanceSheetFromSelectedTimePeriode() {
+    //sprawdz czy uzytkownik jest zalogowany
     //
 }

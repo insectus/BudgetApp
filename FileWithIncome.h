@@ -19,7 +19,8 @@ public:
        lastIncomeId = 0;
     };
 
-    int getLaseIncomeId();
+    int getLastIncomeId();
+    bool addNewIncomeToFile(Income income);
 };
 
 #endif

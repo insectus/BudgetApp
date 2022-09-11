@@ -12,14 +12,15 @@
 #include "FileWithExpense.h"
 #include "FileWithIncome.h"
 #include "User.h"
-
+#include "UserManager.h"
 
 using namespace std;
 
 class BudgetManager {
 
     FileWithIncome fileWithIncome;
-    FileWithExpense fileWithExpense;
+    //FileWithExpense fileWithExpense;
+    DateOperation dateOperation;
 
     const int ID_LOGIN_USER;
 
@@ -28,13 +29,20 @@ class BudgetManager {
     Income addNewIncome();
 
 public:
-    BudgetManager(string INCOME_FILE_NAME, string  EXPENSE_FILE_NAME, int idLoginUser)
-    : fileWithIncome(INCOME_FILE_NAME), fileWithExpense(EXPENSE_FILE_NAME), ID_LOGIN_USER(idLoginUser){
-    //
+    BudgetManager(string INCOME_FILE_NAME, int idLoginUser)//
+    : fileWithIncome(INCOME_FILE_NAME), ID_LOGIN_USER(idLoginUser){ //
+        //
     };
 
-    void addIncome();
+    /*
 
+    BudgetManager(string INCOME_FILE_NAME, string  EXPENSE_FILE_NAME, int idLoginUser)//
+    : fileWithIncome(INCOME_FILE_NAME), fileWithExpense(EXPENSE_FILE_NAME), ID_LOGIN_USER(idLoginUser){ //
+        //
+    };
+    */
+
+    void addIncome();
 };
 
 #endif

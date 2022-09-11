@@ -1,47 +1,38 @@
 #include "BudgetManager.h"
 
-/*
-- zapytaj czy dotyczy on dnia dzisiejszego, czy jednak chce dodaæ z inn¹ dat¹.
-- Jeœli wybierze dzieñ dzisiejszy to pobierz z systemu dzisiejsz¹ datê i skorzystaj z niej.
-- Jeœli wybierze inn¹ datê to poproœ o wpisanie daty w formacie rrrr-mm-dd np. 2017-11-01.
-- Nastêpnie sprawdŸ czy wpisa³ poprawn¹ datê.
-Zak³adamy, ¿e data musi mieœciæ siê w przedziale od roku 2000-01-01
-do maksymalnie ostatniego dnia bie¿¹cego miesi¹ca.
-- Nastêpnie poproœ o wpisanie czego dotyczy ten przychód (np. wyp³ata, odsetki itxd.).
-- Kolejno zapytaj o okreœlenie wysokoœci przychodu.
-Kwoty u³amkowe zapisuj z kropk¹, jeœli ktoœ wpisze u³amek z przecinkiem,
-to zamieñ przecinek na kropkê.
-
-*/
-void BudgetManager::addIncome(){
+void BudgetManager::addIncome() {
     system("cls");
     cout << " >>> DODAJ NOWY PRZYCHOD <<<\n\n";
+
     Income income = addNewIncome();
 
     incomes.push_back(income);
 
-    //fileWithIncome.addNewIncomeToFile(income);
+    fileWithIncome.addNewIncomeToFile(income);
 }
 
 Income BudgetManager::addNewIncome() {
 
     Income income;
+    bool incorrectMenuSelestion = true;
     char dateSelection;
-
-    income.setIncomeId(fileWithIncome.getLaseIncomeId()+1);
+    string incomeDate, incomeItem, incomeAmount;
+    income.setIncomeId(fileWithIncome.getLastIncomeId()+1);
     income.setUserId(ID_LOGIN_USER);
 
     cout << "Czy przychow dotyczy:\n1. Dnia dzisiejszego\n2. Innego dnia\nTwoj wybor: ";
 
-    //data
-    while(true) {
-        dateSelection = DateOperation::getCurrentDate();
+    while(incorrectMenuSelestion){
+        dateSelection = AuxilaryMethod::loadChar();
         switch(dateSelection) {
         case '1':
-            //
+            income.setDate(dateOperation.getCurrentYearMonthDayAsString());
+            incorrectMenuSelestion = false;
             break;
         case '2':
-            //
+            cout << "Podaj date w formacie rrrr-mm-dd: ";
+            income.setDate(AuxilaryMethod::loadLine()); // dodaj walidacje
+            incorrectMenuSelestion = false;
             break;
         default:
             cout << "\nNie ma takiej opcji w menu.\n\n";
@@ -49,10 +40,30 @@ Income BudgetManager::addNewIncome() {
             break;
         }
     }
-    //typ przychodu
-    //kwota
-    //adresat.ustawImie(MetodyPomocnicze::wczytajLinie());
-    //adresat.ustawImie(MetodyPomocnicze::zamienPierwszaLitereNaDuzaAPozostaleNaMale(adresat.pobierzImie()));
 
+    cout << "Podaj zrodlo przychodu: ";
+    income.setItem(AuxilaryMethod::loadLine()); // dodaj walidacje
+
+    cout << "Podaj kwote przychodu: ";
+    income.setAmount(AuxilaryMethod::loadLine());// dodaj walidacje
+
+    cout << "\nPrzychod dodany do wektora\n";
+    cout << income.getUserId() << endl;
+    cout << income.getIncomeId() << endl;
+    cout << income.getDate() << endl;
+    cout << income.getAmount() << endl;
+    cout << income.getItem() << endl;
+    system("pause");
     return income;
 }
+
+/*
+- Jeœli wybierze inn¹ datê to poproœ o wpisanie daty w formacie rrrr-mm-dd np. 2017-11-01.
+- Nastêpnie sprawdŸ czy wpisa³ poprawn¹ datê.
+Zak³adamy, ¿e data musi mieœciæ siê w przedziale od roku 2000-01-01
+do maksymalnie ostatniego dnia bie¿¹cego miesi¹ca.
+- Kolejno zapytaj o okreœlenie wysokoœci przychodu.
+Kwoty u³amkowe zapisuj z kropk¹, jeœli ktoœ wpisze u³amek z przecinkiem,
+to zamieñ przecinek na kropkê.
+
+*/

@@ -2,22 +2,22 @@
 
 void Income::setIncomeId(int newIncomeId) {
     if(newIncomeId >= 0) {
-        newIncomeId = incomeId;
+        incomeId = newIncomeId;
     }
 }
 void Income::setUserId(int newUserId) {
     if(newUserId >= 0) {
-        newUserId = userId;
+        userId = newUserId;
     }
 }
 void Income::setDate(string newDate) {
-    newDate = date;
+    date = newDate;
 }
 void Income::setItem(string newItem) {
-    newItem = item;
+    item = newItem;
 }
 void Income::setAmount(string newAmount) {
-    newAmount = amount;
+    amount = newAmount;
 }
 
 int Income::getIncomeId() {
