@@ -38,11 +38,25 @@ char BudgetApp::selectOptionFromUserMenu() {
 void BudgetApp::registerUser() {
     userManager.registerUser();
 }
+
 void BudgetApp::loginUser() {
     userManager.loginUser();
 }
+
+void BudgetApp::changeLoginUserPassword() {
+    userManager.changeLoginUserPassword();
+}
+
+void BudgetApp::logoutUser() {
+    userManager.logoutUser();
+}
+
+int BudgetApp::getLoginUserId() {
+    return userManager.getLoginUserId();
+}
+
 void BudgetApp::addIncome() {
-    //
+    budgetManager->addIncome();
 }
 void BudgetApp::addExpense() {
     //
@@ -55,14 +69,4 @@ void BudgetApp::balanceSheetFromPreviousMonth() {
 }
 void BudgetApp::balanceSheetFromSelectedTimePeriode() {
     //
-}
-void BudgetApp::changeLoginUserPassword() {
-    userManager.changeLoginUserPassword();
-}
-void BudgetApp::logoutUser() {
-    userManager.logoutUser();
-}
-
-int BudgetApp::getLoginUserId() {
-    return userManager.getLoginUserId();
 }
