@@ -58,13 +58,16 @@ int main() {
     return 0;
 }
 
-/*
+
 //TEST Add Income
 #include "BudgetManager.h"
+#include "FileWithIncome.h"
 
-int main(){
-    BudgetManager budgetManager("income.xml", "expense.xml", 2);
-    budgetManager.addIncome();
+int _main() {
+    //BudgetManager budgetManager("income.xml", "expense.xml", 2);
+    //budgetManager.addIncome();
+    FileWithIncome fileWithIncome("income.xml");
+    fileWithIncome.loadIncomesLoginUser(1);
 }
 
-*/
+

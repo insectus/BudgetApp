@@ -13,6 +13,8 @@ public:
     static char loadChar();
     static string convertIntToString(int number);
     static string loadLine();
+    static bool amountValidation(string amount);
+    static string convertComaToDotInAmount(string amount);
 };
 
 #endif
