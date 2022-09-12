@@ -18,6 +18,14 @@ string DateOperation::getCurrentYearMonthDayAsString() {
     ssDay << (now->tm_mday);
     day = ssDay.str();
 
+    if (stoi(month) <= 9){
+        month = "0" + month;
+    }
+
+    if (stoi(day) <= 9){
+        day = "0" + day;
+    }
+
     dateAsString = year + "-" + month + "-" + day;
 
     return dateAsString;
