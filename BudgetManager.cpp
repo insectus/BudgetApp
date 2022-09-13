@@ -31,7 +31,12 @@ Income BudgetManager::addNewIncome() {
             break;
         case '2':
             cout << "Podaj date w formacie rrrr-mm-dd: ";
-            income.setDate(AuxilaryMethod::loadLine()); // dodaj walidacje
+            incomeDate = AuxilaryMethod::loadLine();
+            while(!dateOperation.dateValidation(incomeDate)){
+                cout << "Podaj date w formacie rrrr-mm-dd: ";
+                incomeDate = AuxilaryMethod::loadLine();
+            }
+            income.setDate(incomeDate); // dodaj walidacje
             incorrectMenuSelestion = false;
             break;
         default:
