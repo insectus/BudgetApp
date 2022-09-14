@@ -32,11 +32,11 @@ Income BudgetManager::addNewIncome() {
         case '2':
             cout << "Podaj date w formacie rrrr-mm-dd: ";
             incomeDate = AuxilaryMethod::loadLine();
-            while(!dateOperation.dateValidation(incomeDate)){
+            while(!dateOperation.dateValidation(incomeDate)) {
                 cout << "Podaj date w formacie rrrr-mm-dd: ";
                 incomeDate = AuxilaryMethod::loadLine();
             }
-            income.setDate(incomeDate); // dodaj walidacje
+            income.setDate(incomeDate);
             incorrectMenuSelestion = false;
             break;
         default:
@@ -59,9 +59,3 @@ Income BudgetManager::addNewIncome() {
 
     return income;
 }
-
-/*
-- Nastêpnie sprawdŸ czy wpisa³ poprawn¹ datê.
-Zak³adamy, ¿e data musi mieœciæ siê w przedziale od roku 2000-01-01
-do maksymalnie ostatniego dnia bie¿¹cego miesi¹ca.
-*/

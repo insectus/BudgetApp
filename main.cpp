@@ -69,7 +69,7 @@ int _main() {
     //budgetManager.addIncome();
     FileWithIncome fileWithIncome("income.xml");
     fileWithIncome.loadIncomesLoginUser(1);
-
+    return 0;
 }
 
 
