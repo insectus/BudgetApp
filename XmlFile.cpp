@@ -1,6 +1,6 @@
 #include "XmlFile.h"
 
-bool XmlFile::isFileEmpty(){
+bool XmlFile::isFileEmpty() {
 
     CMarkup xml;
 
@@ -9,6 +9,6 @@ bool XmlFile::isFileEmpty(){
     return fileExistsUsers;
 }
 
-string XmlFile::getFileName(){
+string XmlFile::getFileName() {
     return FILE_NAME;
 }

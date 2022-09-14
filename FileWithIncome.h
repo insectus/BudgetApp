@@ -2,13 +2,28 @@
 #define FILEWITHINCOME_H
 
 #include <iostream>
+#include <vector>
+#include <windows.h>
+
+#include "Income.h"
+#include "XmlFile.h"
+#include "AuxilaryMethod.h"
 
 using namespace std;
 
-class FileWithIncome {
+class FileWithIncome : public XmlFile {
+
+    int lastIncomeId;
 
 public:
 
+    FileWithIncome(string incomeFileName) : XmlFile(incomeFileName) {
+        lastIncomeId = 0;
+    };
+
+    int getLastIncomeId();
+    bool addNewIncomeToFile(Income income);
+    vector <Income> loadIncomesLoginUser(int idLoginUser);
 };
 
 #endif

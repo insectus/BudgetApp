@@ -2,16 +2,30 @@
 #define BUDGETAPP_H
 
 #include <iostream>
-#include "BudgetManager.h"
+
 #include "UserManager.h"
+#include "BudgetManager.h"
 
 using namespace std;
 
 class BudgetApp {
+
     UserManager userManager;
+    BudgetManager *budgetManager;
+
+    const string INCOME_FILE_NAME;
+    const string EXPENSE_FILE_NAME;
 
 public:
-    BudgetApp(string USER_FILE_NAME) : userManager(USER_FILE_NAME) {};
+    BudgetApp(string USER_FILE_NAME, string incomeFileName, string expenseFileName)
+        : userManager(USER_FILE_NAME), INCOME_FILE_NAME(incomeFileName), EXPENSE_FILE_NAME(expenseFileName) {
+        budgetManager = NULL;
+    };
+
+    ~BudgetApp() {
+        delete budgetManager;
+        budgetManager = NULL;
+    };
 
     char selectOptionFromMainMenu();
     char selectOptionFromUserMenu();

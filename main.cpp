@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    BudgetApp budgetApp("users.xml");
+    BudgetApp budgetApp("users.xml", "income.xml", "expene.xml");
 
     char select;
     while(true) {
@@ -18,6 +18,7 @@ int main() {
                 break;
             case '2':
                 budgetApp.loginUser();
+
                 break;
             case '9':
                 exit(0);
@@ -31,7 +32,7 @@ int main() {
 
             switch(select) {
             case '1':
-                //budgetApp.addIncome();
+                budgetApp.addIncome();
                 break;
             case '2':
                 // budgetApp.addExpense();
@@ -56,3 +57,19 @@ int main() {
     }
     return 0;
 }
+
+
+//TEST Add Income
+#include "BudgetManager.h"
+#include "FileWithIncome.h"
+#include "DateOperation.h"
+
+int _main() {
+    //BudgetManager budgetManager("income.xml", "expense.xml", 2);
+    //budgetManager.addIncome();
+    FileWithIncome fileWithIncome("income.xml");
+    fileWithIncome.loadIncomesLoginUser(1);
+    return 0;
+}
+
+

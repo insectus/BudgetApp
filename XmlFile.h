@@ -12,7 +12,7 @@ class XmlFile {
 
 public:
 
-    XmlFile(string fileName) : FILE_NAME(fileName){}
+    XmlFile(string fileName) : FILE_NAME(fileName) {}
 
     bool isFileEmpty();
     string getFileName();

@@ -40,3 +40,5 @@ Budget_App.cbp
 *.exe
 *.out
 *.app
+
+*.xml
