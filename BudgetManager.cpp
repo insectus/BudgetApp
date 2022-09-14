@@ -59,3 +59,67 @@ Income BudgetManager::addNewIncome() {
 
     return income;
 }
+/*
+void BudgetManager::addExpense() {
+    system("cls");
+    cout << " >>> DODAJ NOWY WYDATEK <<<\n\n";
+
+    Expense expense = addNewExpense();
+
+    expenses.push_back(expense);
+
+    fileWithExpense.addNewExpenseToFile(expense);
+}
+*/
+
+/*
+Expense BudgetManager::addNewExpense() {
+
+    Income income;
+    Expense expense;
+    bool incorrectMenuSelestion = true;
+    char dateSelection;
+    string expenseDate, expenseAmount;
+    expense.setUserId(ID_LOGIN_USER);
+    expense.setExpenseId((fileWithExpense.getLastExpenseId()+1));
+
+    cout << "Czy przychod dotyczy:\n\t1. Dnia dzisiejszego\n\t2. Innego dnia\n\nTwoj wybor: ";
+
+    while(incorrectMenuSelestion) {
+        dateSelection = AuxilaryMethod::loadChar();
+        switch(dateSelection) {
+        case '1':
+            expense.setDate(dateOperation.getCurrentYearMonthDayAsString());
+            incorrectMenuSelestion = false;
+            break;
+        case '2':
+            cout << "Podaj date w formacie rrrr-mm-dd: ";
+            expenseDate = AuxilaryMethod::loadLine();
+            while(!dateOperation.dateValidation(incomeDate)) {
+                cout << "Podaj date w formacie rrrr-mm-dd: ";
+                expenseDate = AuxilaryMethod::loadLine();
+            }
+            expense.setDate(expenseDate);
+            incorrectMenuSelestion = false;
+            break;
+        default:
+            cout << "\nNie ma takiej opcji w menu.\n\n";
+            system("pause");
+            break;
+        }
+    }
+
+    cout << "Podaj zrodlo przychodu: ";
+    expense.setItem(AuxilaryMethod::loadLine());
+
+    cout << "Podaj kwote przychodu: ";
+    expenseAmount = AuxilaryMethod::loadLine();
+    while(!AuxilaryMethod::amountValidation(expenseAmount)) {
+        cout << "Podaj kwote przychodu: ";
+        expenseAmount = AuxilaryMethod::loadLine();
+    }
+    expense.setAmount(AuxilaryMethod::convertComaToDotInAmount(expenseAmount));
+
+    return expense;
+}
+*/
