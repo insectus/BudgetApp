@@ -80,7 +80,7 @@ void BudgetApp::addIncome() {
 
 void BudgetApp::addExpense() {
     if (userManager.isUserLogin()) {
-        //
+        //budgetManager->addExpense();
     } else {
         cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
         Sleep(1500);
