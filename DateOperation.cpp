@@ -33,9 +33,33 @@ string DateOperation::getCurrentYearMonthDayAsString() {
     return dateAsString;
 }
 
-int DateOperation::getCurrentYearMonthDayAsInt() {
-//
-    return 0;
+int DateOperation::getDateAsInt(string date) {
+
+    string year, month, day;
+
+    year = date.substr(0,4);
+    month = date.substr(5,2);
+    day = date.substr(8,2);
+
+    dateAsInt = stoi(year + month + day);
+
+    return dateAsInt;
+}
+
+string DateOperation::convertDateFromIntToString(int date) {
+
+    string year, month, day;
+
+    year = to_string(date);
+    year = year.substr(0,4);
+    month = to_string(date);
+    month = month.substr(4,2);
+    day = to_string(date);
+    day = day.substr(6,2);
+
+    dateAsString = year + "-" + month + "-" + day;
+
+    return dateAsString;
 }
 
 int DateOperation::getNumberOfDays() {

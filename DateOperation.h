@@ -5,25 +5,28 @@
 #include <ctime>
 #include <iostream>
 #include <sstream>
+#include <string>
 
 using namespace std;
 
 class DateOperation {
 
+    int dateAsInt;
+    int yearInt, monthInt, dayInt;
+    int inputYearToInt, inputMonthToInt, inputDayToInt;
     string year, month, day, dateAsString;
-    int dayAsYear;
+
     int getNumberOfDays();
     bool dateFormatValidation(string inputDate);
     bool dateRange(string inputDate);
 
-    int inputYearToInt, inputMonthToInt, inputDayToInt;
-    int yearInt, monthInt, dayInt;
-
 public:
 
-    string getCurrentYearMonthDayAsString();
-    int getCurrentYearMonthDayAsInt();
+    int getDateAsInt(string date);
     bool dateValidation(string inputDate);
+    string convertDateFromIntToString(int date);
+    string getCurrentYearMonthDayAsString();
+
 };
 
 #endif
