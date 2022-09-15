@@ -2,22 +2,22 @@
 
 void Expense::setExpenseId(int newExpenseId) {
     if(newExpenseId >= 0) {
-        newExpenseId = expenseId;
+        expenseId = newExpenseId;
     }
 }
 void Expense::setUserId(int newUserId) {
     if(newUserId >= 0) {
-        newUserId = userId;
+        userId = newUserId;
     }
 }
 void Expense::setDate(string newDate) {
-    newDate = date;
+    date = newDate;
 }
 void Expense::setItem(string newItem) {
-    newItem = item;
+    item = newItem;
 }
 void Expense::setAmount(string newAmount) {
-    newAmount = amount;
+    amount = newAmount;
 }
 
 int Expense::getExpenseId() {
