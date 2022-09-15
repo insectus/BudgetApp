@@ -5,7 +5,7 @@
 using namespace std;
 
 int main() {
-    BudgetApp budgetApp("users.xml", "income.xml", "expene.xml");
+    BudgetApp budgetApp("users.xml", "income.xml", "expense.xml");
 
     char select;
     while(true) {
@@ -35,7 +35,7 @@ int main() {
                 budgetApp.addIncome();
                 break;
             case '2':
-                // budgetApp.addExpense();
+                budgetApp.addExpense();
                 break;
             case '3':
                 //budgetApp.balanceSheetForThisMonth();

@@ -59,7 +59,7 @@ Income BudgetManager::addNewIncome() {
 
     return income;
 }
-/*
+
 void BudgetManager::addExpense() {
     system("cls");
     cout << " >>> DODAJ NOWY WYDATEK <<<\n\n";
@@ -70,12 +70,9 @@ void BudgetManager::addExpense() {
 
     fileWithExpense.addNewExpenseToFile(expense);
 }
-*/
 
-/*
 Expense BudgetManager::addNewExpense() {
 
-    Income income;
     Expense expense;
     bool incorrectMenuSelestion = true;
     char dateSelection;
@@ -83,7 +80,7 @@ Expense BudgetManager::addNewExpense() {
     expense.setUserId(ID_LOGIN_USER);
     expense.setExpenseId((fileWithExpense.getLastExpenseId()+1));
 
-    cout << "Czy przychod dotyczy:\n\t1. Dnia dzisiejszego\n\t2. Innego dnia\n\nTwoj wybor: ";
+    cout << "Czy wydatek dotyczy:\n\t1. Dnia dzisiejszego\n\t2. Innego dnia\n\nTwoj wybor: ";
 
     while(incorrectMenuSelestion) {
         dateSelection = AuxilaryMethod::loadChar();
@@ -95,7 +92,7 @@ Expense BudgetManager::addNewExpense() {
         case '2':
             cout << "Podaj date w formacie rrrr-mm-dd: ";
             expenseDate = AuxilaryMethod::loadLine();
-            while(!dateOperation.dateValidation(incomeDate)) {
+            while(!dateOperation.dateValidation(expenseDate)) {
                 cout << "Podaj date w formacie rrrr-mm-dd: ";
                 expenseDate = AuxilaryMethod::loadLine();
             }
@@ -109,17 +106,16 @@ Expense BudgetManager::addNewExpense() {
         }
     }
 
-    cout << "Podaj zrodlo przychodu: ";
+    cout << "Podaj zrodlo wydatku: ";
     expense.setItem(AuxilaryMethod::loadLine());
 
-    cout << "Podaj kwote przychodu: ";
+    cout << "Podaj kwote wydatku: ";
     expenseAmount = AuxilaryMethod::loadLine();
     while(!AuxilaryMethod::amountValidation(expenseAmount)) {
-        cout << "Podaj kwote przychodu: ";
+        cout << "Podaj kwote wydatku: ";
         expenseAmount = AuxilaryMethod::loadLine();
     }
     expense.setAmount(AuxilaryMethod::convertComaToDotInAmount(expenseAmount));
 
     return expense;
 }
-*/
