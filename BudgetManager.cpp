@@ -26,7 +26,8 @@ Income BudgetManager::addNewIncome() {
         dateSelection = AuxilaryMethod::loadChar();
         switch(dateSelection) {
         case '1':
-            income.setDate(dateOperation.getCurrentYearMonthDayAsString());
+            incomeDate = dateOperation.getCurrentYearMonthDayAsString();
+            income.setDate(dateOperation.getDateAsInt(incomeDate));
             incorrectMenuSelestion = false;
             break;
         case '2':
@@ -36,7 +37,7 @@ Income BudgetManager::addNewIncome() {
                 cout << "Podaj date w formacie rrrr-mm-dd: ";
                 incomeDate = AuxilaryMethod::loadLine();
             }
-            income.setDate(incomeDate);
+            income.setDate(dateOperation.getDateAsInt(incomeDate));
             incorrectMenuSelestion = false;
             break;
         default:
@@ -86,7 +87,8 @@ Expense BudgetManager::addNewExpense() {
         dateSelection = AuxilaryMethod::loadChar();
         switch(dateSelection) {
         case '1':
-            expense.setDate(dateOperation.getCurrentYearMonthDayAsString());
+            expenseDate = dateOperation.getCurrentYearMonthDayAsString();
+            expense.setDate(dateOperation.getDateAsInt(expenseDate));
             incorrectMenuSelestion = false;
             break;
         case '2':
@@ -96,7 +98,7 @@ Expense BudgetManager::addNewExpense() {
                 cout << "Podaj date w formacie rrrr-mm-dd: ";
                 expenseDate = AuxilaryMethod::loadLine();
             }
-            expense.setDate(expenseDate);
+            expense.setDate(dateOperation.getDateAsInt(expenseDate));
             incorrectMenuSelestion = false;
             break;
         default:

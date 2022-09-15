@@ -9,12 +9,12 @@ class Expense {
 
     int expenseId;
     int userId;
-    string date;
+    int date;
     string item;
     string amount;
 
 public:
-    Expense(int expenseId = 0, int userId = 0, string date = "", string item = "", string amount = "") {
+    Expense(int expenseId = 0, int userId = 0, int date = 0, string item = "", string amount = "") {
         this -> expenseId = expenseId;
         this -> userId = userId;
         this -> date = date;
@@ -23,13 +23,13 @@ public:
     }
     void setExpenseId(int newExpenseId);
     void setUserId(int newUserId);
-    void setDate(string newDate);
+    void setDate(int newDate);
     void setItem(string newItem);
     void setAmount(string newAmount);
 
     int getExpenseId();
     int getUserId();
-    string getDate();
+    int getDate();
     string getItem();
     string getAmount();
 };

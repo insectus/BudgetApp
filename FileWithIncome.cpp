@@ -19,7 +19,7 @@ bool FileWithIncome::addNewIncomeToFile(Income income) {
     xml.IntoElem();
     xml.AddElem("userId", AuxilaryMethod::convertIntToString(income.getUserId()));
     xml.AddElem("incomeId", AuxilaryMethod::convertIntToString(income.getIncomeId()));
-    xml.AddElem("date", income.getDate());
+    xml.AddElem("date", dateOperation.convertDateFromIntToString(income.getDate()));
     xml.AddElem("item", income.getItem());
     xml.AddElem("amount", income.getAmount());
 
@@ -50,7 +50,7 @@ vector <Income> FileWithIncome::loadIncomesLoginUser(int idLoginUser) {
             xml.FindElem( "incomeId" );
             income.setIncomeId(stoi(xml.GetData()));
             xml.FindElem( "date" );
-            income.setDate(xml.GetData());
+            income.setDate(dateOperation.getDateAsInt(xml.GetData()));
             xml.FindElem( "item" );
             income.setItem(xml.GetData());
             xml.FindElem( "amount" );

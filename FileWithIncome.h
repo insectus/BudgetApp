@@ -8,10 +8,13 @@
 #include "Income.h"
 #include "XmlFile.h"
 #include "AuxilaryMethod.h"
+#include "DateOperation.h"
 
 using namespace std;
 
 class FileWithIncome : public XmlFile {
+
+    DateOperation dateOperation;
 
     int lastIncomeId;
 

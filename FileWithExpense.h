@@ -8,10 +8,14 @@
 #include "Expense.h"
 #include "XmlFile.h"
 #include "AuxilaryMethod.h"
+#include "DateOperation.h"
 
 using namespace std;
 
 class FileWithExpense : public XmlFile {
+
+    DateOperation dateOperation;
+
     int lastExpenseId;
 
 public:
