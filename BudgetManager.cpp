@@ -121,3 +121,78 @@ Expense BudgetManager::addNewExpense() {
 
     return expense;
 }
+
+void BudgetManager::balanceSheetForThisMonth() {
+
+    Expense expense;
+
+    int startBalansDate = stoi(dateOperation.getCurrentYear() + dateOperation.getCurrentMont() + "01");
+    int stopBalansDate = stoi(dateOperation.getCurrentYear() + dateOperation.getCurrentMont() + dateOperation.getCurrentDay());
+    incomeSum = incomeSorting(startBalansDate, stopBalansDate);
+    expenseSum = expenseSorting(startBalansDate, stopBalansDate);
+
+    balance = incomeSum - expenseSum;
+
+    cout << "\nBilans z obecnego miesiaca to: " << balance <<  "zl" << endl << endl;
+    system ("pause");
+}
+
+bool compareIncome(Income date1, Income date2) {
+    return (date1.getDate() < date2.getDate());
+}
+
+float BudgetManager::incomeSorting(int startDate, int stopDate) {
+
+    Income income;
+    incomeSum = 0;
+
+    for (vector <Income>::iterator itr = incomes.begin(); itr != incomes.end(); itr++) {
+        if ((itr -> getDate() >= startDate) &&(itr -> getDate() <= stopDate)) {
+            income.setDate(itr -> getDate());
+            income.setItem(itr -> getItem());
+            income.setAmount(itr -> getAmount());
+            incomeSum += stof(itr -> getAmount());
+            curentTimeIncomes.push_back(income);
+        }
+    }
+
+    sort(curentTimeIncomes.begin(), curentTimeIncomes.end(), compareIncome);
+
+    cout << "\t<<<PRZYCHODY>>>\n\n";
+    for (vector <Income>::iterator itr = curentTimeIncomes.begin(); itr != curentTimeIncomes.end(); itr++) {
+        cout << "Dnia: " << dateOperation.convertDateFromIntToString(itr -> getDate());
+        cout << "\nWplynela z tytulu: " << itr -> getItem();
+        cout << "\nkwota w wysokosci: " << itr -> getAmount() << endl << endl;
+    }
+    return incomeSum;
+}
+
+bool compareExpense(Expense date1, Expense date2) {
+    return (date1.getDate() < date2.getDate());
+}
+
+float BudgetManager::expenseSorting(int startDate, int stopDate) {
+
+    Expense expense;
+    expenseSum = 0;
+
+    for (vector <Expense>::iterator itr = expenses.begin(); itr != expenses.end(); itr++) {
+        if ((itr -> getDate() >= startDate) &&(itr -> getDate() <= stopDate)) {
+            expense.setDate(itr -> getDate());
+            expense.setItem(itr -> getItem());
+            expense.setAmount(itr -> getAmount());
+            expenseSum += stof(itr -> getAmount());
+            curentTimeExpense.push_back(expense);
+        }
+    }
+
+    sort(curentTimeExpense.begin(), curentTimeExpense.end(), compareExpense);
+
+    cout << "\t<<<WYDATKI>>>\n\n";
+    for (vector <Expense>::iterator itr = curentTimeExpense.begin(); itr != curentTimeExpense.end(); itr++) {
+        cout << "Dnia: " << dateOperation.convertDateFromIntToString(itr -> getDate());
+        cout << "\nWyplacono z tytulu: " << itr -> getItem();
+        cout << "\nkwote w wysokosci: " << itr -> getAmount() << endl << endl;
+    }
+    return expenseSum;
+}

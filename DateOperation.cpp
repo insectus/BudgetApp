@@ -33,6 +33,21 @@ string DateOperation::getCurrentYearMonthDayAsString() {
     return dateAsString;
 }
 
+string DateOperation::getCurrentYear() {
+    getCurrentYearMonthDayAsString();
+    return year;
+}
+
+string DateOperation::getCurrentMont() {
+    getCurrentYearMonthDayAsString();
+    return month;
+}
+
+string DateOperation::getCurrentDay() {
+    getCurrentYearMonthDayAsString();
+    return day;
+}
+
 int DateOperation::getDateAsInt(string date) {
 
     string year, month, day;
@@ -110,7 +125,7 @@ bool DateOperation::dateFormatValidation(string inputDate) {
 }
 
 bool DateOperation::dateRange(string inputDate) {
-    getCurrentYearMonthDayAsString();
+    //getCurrentYearMonthDayAsString();
     inputYearToInt = stoi(inputDate.substr(0,4));
     inputMonthToInt = stoi(inputDate.substr(5,2));
     inputDayToInt = stoi(inputDate.substr(8,2));

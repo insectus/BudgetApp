@@ -38,7 +38,7 @@ int main() {
                 budgetApp.addExpense();
                 break;
             case '3':
-                //budgetApp.balanceSheetForThisMonth();
+                budgetApp.balanceSheetForThisMonth();
                 break;
             case '4':
                 // budgetApp.balanceSheetFromPreviousMonth();
@@ -57,19 +57,3 @@ int main() {
     }
     return 0;
 }
-
-
-//TEST Add Income
-#include "BudgetManager.h"
-#include "FileWithIncome.h"
-#include "DateOperation.h"
-
-int _main() {
-    //BudgetManager budgetManager("income.xml", "expense.xml", 2);
-    //budgetManager.addIncome();
-    FileWithIncome fileWithIncome("income.xml");
-    fileWithIncome.loadIncomesLoginUser(1);
-    return 0;
-}
-
-

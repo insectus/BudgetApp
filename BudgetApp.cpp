@@ -88,7 +88,7 @@ void BudgetApp::addExpense() {
 }
 void BudgetApp::balanceSheetForThisMonth() {
     if (userManager.isUserLogin()) {
-        //
+        budgetManager->balanceSheetForThisMonth();
     } else {
         cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
         Sleep(1500);

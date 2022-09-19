@@ -24,6 +24,9 @@ public:
 
     int getDateAsInt(string date);
     bool dateValidation(string inputDate);
+    string getCurrentYear();
+    string getCurrentMont();
+    string getCurrentDay();
     string convertDateFromIntToString(int date);
     string getCurrentYearMonthDayAsString();
 
