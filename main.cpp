@@ -41,10 +41,10 @@ int main() {
                 budgetApp.balanceSheetForThisMonth();
                 break;
             case '4':
-                // budgetApp.balanceSheetFromPreviousMonth();
+                budgetApp.balanceSheetFromPreviousMonth();
                 break;
             case '5':
-                //budgetApp.balanceSheetFromSelectedTimePeriode();
+                budgetApp.balanceSheetFromSelectedTimePeriode();
                 break;
             case '6':
                 budgetApp.changeLoginUserPassword();

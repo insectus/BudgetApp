@@ -125,7 +125,7 @@ bool DateOperation::dateFormatValidation(string inputDate) {
 }
 
 bool DateOperation::dateRange(string inputDate) {
-    //getCurrentYearMonthDayAsString();
+    getCurrentYearMonthDayAsString();
     inputYearToInt = stoi(inputDate.substr(0,4));
     inputMonthToInt = stoi(inputDate.substr(5,2));
     inputDayToInt = stoi(inputDate.substr(8,2));
@@ -167,4 +167,47 @@ bool DateOperation::dateValidation(string inputDate) {
         return false;
     }
 
+}
+
+string DateOperation::getPriviousMonth() {
+
+    string yearAndMonth;
+    string inputDate = getCurrentYearMonthDayAsString();
+    inputYearToInt = stoi(inputDate.substr(0,4));
+    inputMonthToInt = stoi(inputDate.substr(5,2));
+
+    if(inputMonthToInt == 01) {
+        inputMonthToInt = 12;
+        inputYearToInt = inputYearToInt - 1;
+        year = AuxilaryMethod::convertIntToString(inputYearToInt);
+    } else {
+        inputMonthToInt = inputMonthToInt - 1;
+    }
+    if (inputMonthToInt <= 9) {
+        month = AuxilaryMethod::convertIntToString(inputMonthToInt);
+        month = "0" + month;
+    } else {
+        month = AuxilaryMethod::convertIntToString(inputMonthToInt);
+    }
+
+    yearAndMonth = year + month;
+    return yearAndMonth;
+}
+
+string DateOperation::getNumberDaysPraviousMonth() {
+
+    string praviousDate = getPriviousMonth();
+    int previousYear = stoi(praviousDate.substr(0,4));
+    int previousMonth = stoi(praviousDate.substr(4,2));
+
+    if( previousMonth == 2) {
+        if((previousYear%400==0) || (previousYear%4==0 && previousYear%100!=0))
+            return "29";
+        else
+            return "28";
+    } else if(previousMonth== 1 || previousMonth == 3 || previousMonth == 5 || previousMonth == 7 || previousMonth == 8
+              || previousMonth == 10 || previousMonth == 12)
+        return "31";
+    else
+        return "30";
 }

@@ -50,8 +50,8 @@ public:
     void addIncome();
     void addExpense();
     void balanceSheetForThisMonth();
-    //void balanceSheetForPreviousMonth();
-    //void balanceSheetForThisMonth();
+    void balanceSheetForPreviousMonth();
+    void balanceSheetFromSelectedTimePeriode();
 };
 
 #endif

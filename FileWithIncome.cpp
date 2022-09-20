@@ -55,9 +55,9 @@ vector <Income> FileWithIncome::loadIncomesLoginUser(int idLoginUser) {
             income.setItem(xml.GetData());
             xml.FindElem( "amount" );
             income.setAmount(xml.GetData());
+            incomes.push_back(income);
         }
         xml.OutOfElem();
-        incomes.push_back(income);
     }
     lastIncomeId = income.getIncomeId();
 

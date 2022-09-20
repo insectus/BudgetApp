@@ -10,7 +10,7 @@ char AuxilaryMethod::loadChar() {
             sign = input[0];
             break;
         }
-        cout << "To nie jest pojedynczy znak. Wpisz ponownie." << endl;
+        cout << "To nie jest pojedynczy znak. Wpisz ponownie: ";
     }
     return sign;
 }

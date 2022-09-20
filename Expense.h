@@ -14,6 +14,7 @@ class Expense {
     string amount;
 
 public:
+
     Expense(int expenseId = 0, int userId = 0, int date = 0, string item = "", string amount = "") {
         this -> expenseId = expenseId;
         this -> userId = userId;
@@ -21,6 +22,7 @@ public:
         this -> item = item;
         this -> amount = amount;
     }
+
     void setExpenseId(int newExpenseId);
     void setUserId(int newUserId);
     void setDate(int newDate);

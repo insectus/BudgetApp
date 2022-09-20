@@ -22,6 +22,7 @@ void FileWithUsers::addUserToFile(User user) {
 
     xml.Save(getFileName());
 }
+
 vector <User> FileWithUsers::loadUsersFromFile() {
 
     User user;
