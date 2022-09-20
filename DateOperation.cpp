@@ -33,9 +33,48 @@ string DateOperation::getCurrentYearMonthDayAsString() {
     return dateAsString;
 }
 
-int DateOperation::getCurrentYearMonthDayAsInt() {
-//
-    return 0;
+string DateOperation::getCurrentYear() {
+    getCurrentYearMonthDayAsString();
+    return year;
+}
+
+string DateOperation::getCurrentMont() {
+    getCurrentYearMonthDayAsString();
+    return month;
+}
+
+string DateOperation::getCurrentDay() {
+    getCurrentYearMonthDayAsString();
+    return day;
+}
+
+int DateOperation::getDateAsInt(string date) {
+
+    string year, month, day;
+
+    year = date.substr(0,4);
+    month = date.substr(5,2);
+    day = date.substr(8,2);
+
+    dateAsInt = stoi(year + month + day);
+
+    return dateAsInt;
+}
+
+string DateOperation::convertDateFromIntToString(int date) {
+
+    string year, month, day;
+
+    year = to_string(date);
+    year = year.substr(0,4);
+    month = to_string(date);
+    month = month.substr(4,2);
+    day = to_string(date);
+    day = day.substr(6,2);
+
+    dateAsString = year + "-" + month + "-" + day;
+
+    return dateAsString;
 }
 
 int DateOperation::getNumberOfDays() {
@@ -128,4 +167,47 @@ bool DateOperation::dateValidation(string inputDate) {
         return false;
     }
 
+}
+
+string DateOperation::getPriviousMonth() {
+
+    string yearAndMonth;
+    string inputDate = getCurrentYearMonthDayAsString();
+    inputYearToInt = stoi(inputDate.substr(0,4));
+    inputMonthToInt = stoi(inputDate.substr(5,2));
+
+    if(inputMonthToInt == 01) {
+        inputMonthToInt = 12;
+        inputYearToInt = inputYearToInt - 1;
+        year = AuxilaryMethod::convertIntToString(inputYearToInt);
+    } else {
+        inputMonthToInt = inputMonthToInt - 1;
+    }
+    if (inputMonthToInt <= 9) {
+        month = AuxilaryMethod::convertIntToString(inputMonthToInt);
+        month = "0" + month;
+    } else {
+        month = AuxilaryMethod::convertIntToString(inputMonthToInt);
+    }
+
+    yearAndMonth = year + month;
+    return yearAndMonth;
+}
+
+string DateOperation::getNumberDaysPraviousMonth() {
+
+    string praviousDate = getPriviousMonth();
+    int previousYear = stoi(praviousDate.substr(0,4));
+    int previousMonth = stoi(praviousDate.substr(4,2));
+
+    if( previousMonth == 2) {
+        if((previousYear%400==0) || (previousYear%4==0 && previousYear%100!=0))
+            return "29";
+        else
+            return "28";
+    } else if(previousMonth== 1 || previousMonth == 3 || previousMonth == 5 || previousMonth == 7 || previousMonth == 8
+              || previousMonth == 10 || previousMonth == 12)
+        return "31";
+    else
+        return "30";
 }

@@ -14,6 +14,7 @@ class User {
     string surname;
 
 public:
+
     void setUserId(int newId);
     void setLogin(string newLogin);
     void setPassword(string newPassowrd);

@@ -19,7 +19,7 @@ bool FileWithExpense::addNewExpenseToFile(Expense expense) {
     xml.IntoElem();
     xml.AddElem("userId", AuxilaryMethod::convertIntToString(expense.getUserId()));
     xml.AddElem("expenseId", AuxilaryMethod::convertIntToString(expense.getExpenseId()));
-    xml.AddElem("date", expense.getDate());
+    xml.AddElem("date", dateOperation.convertDateFromIntToString(expense.getDate()));
     xml.AddElem("item", expense.getItem());
     xml.AddElem("amount", expense.getAmount());
 
@@ -50,14 +50,14 @@ vector <Expense> FileWithExpense::loadExpensesLoginUser(int idLoginUser) {
             xml.FindElem( "expenseId" );
             expense.setExpenseId(stoi(xml.GetData()));
             xml.FindElem( "date" );
-            expense.setDate(xml.GetData());
+            expense.setDate(dateOperation.getDateAsInt(xml.GetData()));
             xml.FindElem( "item" );
             expense.setItem(xml.GetData());
             xml.FindElem( "amount" );
             expense.setAmount(xml.GetData());
+            expenses.push_back(expense);
         }
         xml.OutOfElem();
-        expenses.push_back(expense);
     }
     lastExpenseId = expense.getExpenseId();
 

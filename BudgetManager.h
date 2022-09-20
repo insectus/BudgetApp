@@ -4,6 +4,9 @@
 #include <iostream>
 #include <vector>
 #include <windows.h>
+#include <algorithm>
+#include <iomanip>
+#include <cmath>
 
 #include "AuxilaryMethod.h"
 #include "DateOperation.h"
@@ -25,12 +28,17 @@ class BudgetManager {
     const int ID_LOGIN_USER;
     int lastIncomeId;
     int lastExpenseId;
+    float incomeSum,  expenseSum, balance;
 
     vector <Income> incomes;
     vector <Expense> expenses;
+    vector <Income> curentTimeIncomes;
+    vector <Expense> curentTimeExpense;
 
     Income addNewIncome();
     Expense addNewExpense();
+    float incomeSorting(int startDate, int stopDate);
+    float expenseSorting(int startDate, int stopDate);
 
 public:
     BudgetManager(string INCOME_FILE_NAME, string  EXPENSE_FILE_NAME, int idLoginUser)//
@@ -41,6 +49,9 @@ public:
 
     void addIncome();
     void addExpense();
+    void balanceSheetForThisMonth();
+    void balanceSheetForPreviousMonth();
+    void balanceSheetFromSelectedTimePeriode();
 };
 
 #endif

@@ -40,6 +40,7 @@ User UserManager::getNewUserData() {
 
     return user;
 }
+
 int UserManager::getNewUserId() {
     if (users.empty() == true) {
         return 1;
@@ -47,6 +48,7 @@ int UserManager::getNewUserId() {
         return users.back().getUserId()+ 1;
     }
 }
+
 bool UserManager::loginExist(string login) {
 
     for (auto itr = users.begin(); itr != users.end(); itr++) {

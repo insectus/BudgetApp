@@ -15,6 +15,7 @@ char BudgetApp::selectOptionFromMainMenu() {
 
     return select;
 }
+
 char BudgetApp::selectOptionFromUserMenu() {
     char select;
 
@@ -35,6 +36,7 @@ char BudgetApp::selectOptionFromUserMenu() {
 
     return select;
 }
+
 void BudgetApp::registerUser() {
     userManager.registerUser();
 }
@@ -43,9 +45,6 @@ void BudgetApp::loginUser() {
     userManager.loginUser();
     if (userManager.isUserLogin()) {
         budgetManager = new BudgetManager(INCOME_FILE_NAME, EXPENSE_FILE_NAME, userManager.getLoginUserId());
-    } else {
-        cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
-        Sleep(1500);
     }
 }
 
@@ -71,7 +70,7 @@ int BudgetApp::getLoginUserId() {
 
 void BudgetApp::addIncome() {
     if (userManager.isUserLogin()) {
-        budgetManager->addIncome();
+        budgetManager -> addIncome();
     } else {
         cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
         Sleep(1500);
@@ -80,31 +79,34 @@ void BudgetApp::addIncome() {
 
 void BudgetApp::addExpense() {
     if (userManager.isUserLogin()) {
-        budgetManager->addExpense();
+        budgetManager -> addExpense();
     } else {
         cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
         Sleep(1500);
     }
 }
+
 void BudgetApp::balanceSheetForThisMonth() {
     if (userManager.isUserLogin()) {
-        //
+        budgetManager -> balanceSheetForThisMonth();
     } else {
         cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
         Sleep(1500);
     }
 }
+
 void BudgetApp::balanceSheetFromPreviousMonth() {
     if (userManager.isUserLogin()) {
-        //
+        budgetManager -> balanceSheetForPreviousMonth();
     } else {
         cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
         Sleep(1500);
     }
 }
+
 void BudgetApp::balanceSheetFromSelectedTimePeriode() {
     if (userManager.isUserLogin()) {
-        //
+        budgetManager -> balanceSheetFromSelectedTimePeriode();
     } else {
         cout << "Aby zmienic haslo uzytkownika nalezy najpierw sie zalogowac\n.";
         Sleep(1500);
